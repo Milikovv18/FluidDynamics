@@ -36,8 +36,10 @@ FluidDynamics is a Windows console-based simulation of water behavior. The "wate
 ## Theory
 
 ### 1. **Density Computation**  
-The particle density is computed using the Poly6 smoothing kernel:  
-$$ \rho_i = \sum_j m_j \cdot W_{\text{poly6}}(|r_i - r_j|, h) $$  
+The particle density is computed using the Poly6 smoothing kernel:
+
+![equation](https://latex.codecogs.com/svg.latex?\rho_i=\sum_j&space;m_j\cdot&space;W_{\text{poly6}}(|r_i-r_j|,h))
+
 where:  
 - $\rho_i$: Density at particle $i $  
 - $m_j $: Mass of particle $j $  
@@ -46,7 +48,9 @@ where:
 
 ### 2. **Pressure (Ideal Gas Law)**  
 Pressure is determined by the ideal gas law:  
-$$ P_i = k \cdot (\rho_i - \rho_0) $$  
+
+![equation](https://latex.codecogs.com/svg.latex?P_i%20=%20k%20\cdot%20(\rho_i%20-%20\rho_0))
+
 where:  
 - $P_i $: Pressure at particle $i $  
 - $k $: Gas constant  
@@ -54,7 +58,9 @@ where:
 
 ### 3. **Acceleration (SPH Forces)**  
 The acceleration of particles is computed by combining pressure and viscosity forces:  
-$$ a_i = -\sum_j m_j \left( \frac{P_i + P_j}{2 \cdot \rho_j} \right) \nabla W_{\text{spiky}} + \mu \nabla^2 W_{\text{visc}} $$  
+
+![equation](https://latex.codecogs.com/svg.latex?a_i%20=%20-\sum_j%20m_j%20\left(%20\frac{P_i%20+%20P_j}{2%20\cdot%20\rho_j}%20\right)%20\nabla%20W_{\text{spiky}}%20+%20\mu%20\nabla^2%20W_{\text{visc}})
+
 where:  
 - $\nabla W_{\text{spiky}} $: Gradient of the Spiky kernel  
 - $\nabla^2 W_{\text{visc}} $: Laplacian of the viscosity kernel  
@@ -64,7 +70,7 @@ where:
 
 ## Constants (Defined in `World.h`)
 
-| Constant             | Value (default UoM)                  |
+| Constant             | Value (default UoM)    |
 |----------------------|------------------------|
 | **Gravity**          | $12000 \cdot -9.8 $ |
 | **Rest Density**     | $1000 $             |
